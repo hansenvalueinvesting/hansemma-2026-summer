@@ -53,14 +53,22 @@
   .sub{margin-top:14px;color:var(--muted);font-size:clamp(15px,2vw,17px)}
   .sub b{color:var(--gold);font-weight:700;font-variant-numeric:tabular-nums}
 
-  /* the sun: signature element */
-  .sun-line{display:flex;align-items:center;gap:16px;justify-content:center;margin:30px 0 8px}
+  /* the sun countdown: signature element — sun drifts across the summer */
+  .countdown{max-width:620px;margin:46px auto 6px;padding:0 27px}
+  .track{position:relative;height:3px;border-radius:3px;
+    background:linear-gradient(90deg,rgba(255,210,170,.30),rgba(255,210,170,.10))}
+  .track-fill{position:absolute;left:0;top:0;height:100%;border-radius:3px;
+    background:linear-gradient(90deg,var(--peach),var(--coral));
+    box-shadow:0 0 14px rgba(255,126,107,.55);transition:width .9s ease}
   .sun{
-    width:54px;height:54px;border-radius:50%;flex:none;
+    position:absolute;top:50%;left:0;width:46px;height:46px;border-radius:50%;
+    transform:translate(-50%,-50%);
     background:radial-gradient(circle at 38% 34%, var(--gold), var(--coral) 62%, var(--rose));
     box-shadow:0 0 32px 6px rgba(255,126,107,.55), 0 0 70px 18px rgba(255,159,178,.25);
+    transition:left .9s ease;
   }
-  .sun-track{flex:1;max-width:360px;height:2px;background:linear-gradient(90deg,var(--peach),transparent);border-radius:2px;position:relative}
+  .count-caption{margin-top:30px;color:var(--muted);font-size:14.5px;letter-spacing:.01em}
+  .count-caption b{color:var(--gold);font-weight:700;font-variant-numeric:tabular-nums}
 
   /* ---- stat grid ---- */
   .grid{display:grid;gap:16px;margin-top:30px}
@@ -77,9 +85,7 @@
   .card .v small{font-size:.42em;color:var(--peach);font-family:'Nunito Sans';font-weight:700;letter-spacing:.04em}
   .card .cap{margin-top:6px;font-size:13px;color:var(--muted)}
 
-  /* ---- two-up panels ---- */
-  .duo{grid-template-columns:1fr 1fr}
-  @media(max-width:760px){.duo{grid-template-columns:1fr}}
+  /* ---- panels ---- */
   .panel{
     background:linear-gradient(180deg, rgba(61,47,84,.5), rgba(42,33,71,.46));
     border:1px solid var(--line);border-radius:22px;padding:26px 24px;box-shadow:var(--shadow)
@@ -89,21 +95,6 @@
     margin-bottom:4px
   }
   .panel .lead{color:var(--muted);font-size:13.5px;margin-bottom:20px}
-
-  /* days-left ring */
-  .ring-row{display:flex;align-items:center;gap:22px}
-  .ring{--p:0;width:128px;height:128px;flex:none;border-radius:50%;
-    background:
-      radial-gradient(closest-side, var(--night-2) 70%, transparent 71% 100%),
-      conic-gradient(var(--coral) calc(var(--p)*1%), rgba(255,255,255,.08) 0);
-    display:grid;place-items:center;position:relative
-  }
-  .ring::after{content:"";position:absolute;inset:0;border-radius:50%;
-    box-shadow:0 0 26px rgba(255,126,107,.3) inset}
-  .ring .rv{font-family:'Fraunces',serif;font-weight:500;font-size:34px;line-height:1;color:var(--cream)}
-  .ring .rl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-  .ring-meta{font-size:14px;color:var(--muted)}
-  .ring-meta b{color:var(--cream);font-weight:700}
 
   /* % on call bar */
   .pct-big{font-family:'Fraunces',serif;font-weight:500;font-size:52px;color:var(--rose);line-height:1;font-variant-numeric:tabular-nums}
@@ -116,7 +107,7 @@
 
   /* ---- records ---- */
   .records{margin-top:16px}
-  .rec-list{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+  .rec-list{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
   @media(max-width:760px){.rec-list{grid-template-columns:1fr}}
   .rec{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:16px;
     background:rgba(255,255,255,.04);border:1px solid var(--line)}
@@ -142,11 +133,6 @@
 
   /* ---- log ---- */
   .log-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:6px}
-  .filters{display:flex;gap:8px}
-  .filters button{font-family:inherit;font-size:12.5px;font-weight:700;color:var(--muted);
-    background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;transition:.15s}
-  .filters button:hover{color:var(--cream)}
-  .filters button[aria-pressed="true"]{background:linear-gradient(180deg,var(--coral),var(--rose));color:#2a1320;border-color:transparent}
   .log{margin-top:14px;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
   .row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;
     padding:13px 18px;background:rgba(255,255,255,.02);border-bottom:1px solid var(--line);font-size:14.5px}
@@ -156,7 +142,6 @@
   .row .date{color:var(--cream);font-weight:600}
   .row .time{color:var(--muted);font-size:13px}
   .row .dur{font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700;text-align:right}
-  .row.canc .dur{color:var(--muted);font-weight:400;font-style:italic}
   .row .meta{text-align:right;color:var(--muted);font-size:12px}
 
   footer{text-align:center;color:var(--muted);font-size:13px;margin-top:46px;font-style:italic;font-family:'Fraunces',serif}
@@ -173,7 +158,10 @@
     <div class="eyebrow">long distance · summer ’26</div>
     <h1><span class="nf">our</span> summer <span class="nf">on</span> call</h1>
     <p class="sub" id="subline">every minute we closed the distance</p>
-    <div class="sun-line"><span class="sun"></span><span class="sun-track"></span></div>
+    <div class="countdown" id="countdown">
+      <div class="track"><i class="track-fill" id="trackFill"></i><span class="sun" id="sun"></span></div>
+      <p class="count-caption" id="countCaption"></p>
+    </div>
   </header>
 
   <div id="app"></div>
@@ -257,6 +245,16 @@ function render(data){
   document.getElementById("span-dates").textContent =
     `${start.toLocaleDateString("en-GB",{day:"numeric",month:"long",timeZone:"UTC"})} – ${end.toLocaleDateString("en-GB",{day:"numeric",month:"long",timeZone:"UTC"})}`;
 
+  // hero countdown: sun drifts across the summer
+  const endLabel = end.toLocaleDateString("en-GB",{day:"numeric",month:"short",timeZone:"UTC"});
+  requestAnimationFrame(()=>{
+    document.getElementById("trackFill").style.width = progressPct.toFixed(1)+"%";
+    document.getElementById("sun").style.left = progressPct.toFixed(1)+"%";
+  });
+  document.getElementById("countCaption").innerHTML = daysLeft>0
+    ? `<b>${daysLeft}</b> sunsets apart — until we're back under the same sky on <b>${endLabel}</b>`
+    : `back under the same sky — <b>${endLabel}</b> at last`;
+
   // ---------- build DOM ----------
   const app = document.getElementById("app");
 
@@ -277,33 +275,14 @@ function render(data){
       <div class="cap">until 15 Sep</div></div>
   </div>`;
 
-  // duo: countdown ring + % on call
-  const duo = `
-  <div class="grid duo" style="margin-top:16px">
-    <div class="panel">
-      <h2>The countdown</h2>
-      <p class="lead">Summer’s a sundial — here’s how far it’s turned.</p>
-      <div class="ring-row">
-        <div class="ring" style="--p:${progressPct.toFixed(1)}">
-          <div style="text-align:center">
-            <div class="rv">${daysLeft}</div>
-            <div class="rl">days left</div>
-          </div>
-        </div>
-        <div class="ring-meta">
-          <b>Day ${daysElapsed}</b> of ${totalDays}.<br>
-          ${progressPct.toFixed(0)}% of the distance behind you.<br>
-          <span style="color:var(--peach)">${daysLeft} more sunsets apart.</span>
-        </div>
-      </div>
-    </div>
-    <div class="panel">
-      <h2>Summer spent talking</h2>
-      <p class="lead">Of every hour apart so far, this much was voice-to-voice.</p>
-      <div class="pct-big">${pctOnCall.toFixed(2)}<small>%</small></div>
-      <div class="bar"><i style="width:${Math.min(100,pctOnCall*4).toFixed(2)}%"></i></div>
-      <div class="bar-note"><span>${fmtLongDur(totalMin)} on call</span><span>${daysElapsed} days elapsed</span></div>
-    </div>
+  // summer spent talking
+  const talking = `
+  <div class="panel" style="margin-top:16px">
+    <h2>Summer spent talking</h2>
+    <p class="lead">Of every hour apart so far, this much was voice-to-voice.</p>
+    <div class="pct-big">${pctOnCall.toFixed(2)}<small>%</small></div>
+    <div class="bar"><i style="width:${Math.min(100,pctOnCall*4).toFixed(2)}%"></i></div>
+    <div class="bar-note"><span>${fmtLongDur(totalMin)} on call</span><span>${daysElapsed} days elapsed</span></div>
   </div>`;
 
   // records
@@ -323,10 +302,6 @@ function render(data){
         <div class="rk">Most time in a day</div>
         <div class="rv">${fmtLongDur(bestTime)}</div>
         <div class="rd">${prettyDate(bestTimeDay)}</div></div></div>
-      <div class="rec"><div class="ico">🌅</div><div>
-        <div class="rk">Talking since</div>
-        <div class="rv">${prettyDate(data.summerStart)}</div>
-        <div class="rd">${daysElapsed} days and counting</div></div></div>
     </div>
   </div>`;
 
@@ -336,8 +311,8 @@ function render(data){
   // log
   const log = buildLog(calls);
 
-  app.innerHTML = stats + duo + records + heat + log;
-  wireFilters();
+  app.innerHTML = stats + talking + records + heat + log;
+  wireHeatTip();
 }
 
 function colorFor(min){
@@ -395,38 +370,21 @@ function buildLog(calls){
   const sorted = calls.slice().sort((a,b)=>
     (b.date+ "T"+ b.time).localeCompare(a.date+"T"+a.time));
   const rows = sorted.map(c=>{
-    const canc = c.minutes<=0;
-    return `<div class="row ${canc?'canc':''}" data-canc="${canc?1:0}">
+    return `<div class="row">
       <span><span class="date">${prettyDate(c.date)}</span> <span class="time">· ${c.time}</span></span>
-      <span class="dur">${canc ? (c.note||'cancelled') : fmtDur(c.minutes)}</span>
+      <span class="dur">${fmtDur(c.minutes)}</span>
     </div>`;
   }).join("");
 
   return `
   <div class="sec-label">the full log</div>
   <div class="log-head">
-    <div class="lead" style="margin:0;color:var(--muted)">${sorted.length} entries · newest first</div>
-    <div class="filters">
-      <button data-f="all" aria-pressed="true">All</button>
-      <button data-f="connected">Connected only</button>
-    </div>
+    <div class="lead" style="margin:0;color:var(--muted)">${sorted.length} calls · newest first</div>
   </div>
   <div class="log" id="log">${rows}</div>`;
 }
 
-function wireFilters(){
-  const btns=[...document.querySelectorAll(".filters button")];
-  const rows=[...document.querySelectorAll("#log .row")];
-  btns.forEach(b=>b.addEventListener("click",()=>{
-    btns.forEach(x=>x.setAttribute("aria-pressed", x===b));
-    const f=b.dataset.f;
-    rows.forEach(r=>{
-      const canc=r.dataset.canc==="1";
-      const show = f==="connected" ? !canc : true;
-      r.style.display=show?"":"none";
-    });
-  }));
-
+function wireHeatTip(){
   // heatmap tooltip
   const tip=document.getElementById("tip");
   const heat=document.getElementById("heat");
