@@ -355,9 +355,6 @@ function startCountdown(summerEnd, endLabel){
     elD.m.textContent = pad(min);
     elD.s.textContent = pad(sec);
 
-    // live countdown in the tab title, like a focus timer
-    document.title = `${days}d · ${hrs}:${pad(min)}:${pad(sec)} · our summer on call`;
-
     if(diff === 0){
       if(startCountdown._t) clearInterval(startCountdown._t);
       if(startCountdown._w) startCountdown._w.terminate();
