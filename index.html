@@ -329,7 +329,9 @@ function render(data){
 // live countdown to reunion — days in the caption, hrs/min/sec ticking below
 function startCountdown(summerEnd, endLabel){
   const [ey,em,ed] = summerEnd.split("-").map(Number);
-  const target = new Date(ey, em-1, ed, 0, 0, 0, 0); // local midnight on reunion day
+  // count down to the END of the reunion day, so today counts as a full day
+  // apart and the day figure reads 85 rather than 84
+  const target = new Date(ey, em-1, ed+1, 0, 0, 0, 0);
   const cap = document.getElementById("countCaption");
   const statDays = document.getElementById("stat-days");
   const elD = {d:document.getElementById("cd-d"), h:document.getElementById("cd-h"), m:document.getElementById("cd-m"), s:document.getElementById("cd-s")};
