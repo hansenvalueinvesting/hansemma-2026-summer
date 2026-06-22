@@ -1,5 +1,5 @@
 {
-  "_README": "Add a new call by copying a line in the calls array below. Format: {\"date\":\"YYYY-MM-DD\", \"time\":\"HH:MM\", \"minutes\": <number>}. Set minutes to 0 (and add a \"note\") for cancelled/missed calls -- they count as an entry but add no time. Keep dates in ISO YYYY-MM-DD. Summer window is set by summerStart/summerEnd.",
+  "_README": "Add a new call by copying a line in the calls array below. Format: {\"date\":\"YYYY-MM-DD\", \"time\":\"HH:MM\", \"minutes\": <number>}. Keep dates in ISO YYYY-MM-DD and minutes greater than 0 -- every entry is a connected call. Summer window is set by summerStart/summerEnd.",
   "summerStart": "2026-06-04",
   "summerEnd": "2026-09-15",
   "calls": [
@@ -7,12 +7,6 @@
       "date": "2026-06-21",
       "time": "23:22",
       "minutes": 82
-    },
-    {
-      "date": "2026-06-21",
-      "time": "23:19",
-      "minutes": 0,
-      "note": "cancelled"
     },
     {
       "date": "2026-06-21",
@@ -38,12 +32,6 @@
       "date": "2026-06-18",
       "time": "20:21",
       "minutes": 101
-    },
-    {
-      "date": "2026-06-18",
-      "time": "20:20",
-      "minutes": 0,
-      "note": "cancelled"
     },
     {
       "date": "2026-06-17",
@@ -101,12 +89,6 @@
       "minutes": 62
     },
     {
-      "date": "2026-06-13",
-      "time": "16:10",
-      "minutes": 0,
-      "note": "cancelled"
-    },
-    {
       "date": "2026-06-12",
       "time": "23:54",
       "minutes": 37
@@ -143,12 +125,6 @@
     },
     {
       "date": "2026-06-11",
-      "time": "19:44",
-      "minutes": 0,
-      "note": "cancelled"
-    },
-    {
-      "date": "2026-06-11",
       "time": "16:01",
       "minutes": 8
     },
@@ -159,12 +135,6 @@
     },
     {
       "date": "2026-06-10",
-      "time": "21:31",
-      "minutes": 0,
-      "note": "cancelled"
-    },
-    {
-      "date": "2026-06-10",
       "time": "20:43",
       "minutes": 42
     },
@@ -172,12 +142,6 @@
       "date": "2026-06-09",
       "time": "23:41",
       "minutes": 21
-    },
-    {
-      "date": "2026-06-09",
-      "time": "23:41",
-      "minutes": 0,
-      "note": "cancelled"
     },
     {
       "date": "2026-06-09",
@@ -221,12 +185,6 @@
     },
     {
       "date": "2026-06-07",
-      "time": "21:09",
-      "minutes": 0,
-      "note": "cancelled"
-    },
-    {
-      "date": "2026-06-07",
       "time": "13:50",
       "minutes": 4
     },
@@ -254,24 +212,6 @@
       "date": "2026-06-05",
       "time": "22:17",
       "minutes": 40
-    },
-    {
-      "date": "2026-06-05",
-      "time": "13:53",
-      "minutes": 0,
-      "note": "cancelled"
-    },
-    {
-      "date": "2026-06-05",
-      "time": "11:44",
-      "minutes": 0,
-      "note": "5 seconds"
-    },
-    {
-      "date": "2026-06-05",
-      "time": "11:43",
-      "minutes": 0,
-      "note": "cancelled"
     },
     {
       "date": "2026-06-04",
