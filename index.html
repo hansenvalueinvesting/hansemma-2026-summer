@@ -302,7 +302,7 @@ function render(data){
     <h2>Summer spent on call</h2>
     <p class="lead">Of every hour apart so far, this much was voice-to-voice.</p>
     <div class="pct-big">${pctOnCall.toFixed(2)}<small>%</small></div>
-    <div class="bar"><i style="width:${Math.min(100,pctOnCall*4).toFixed(2)}%"></i></div>
+    <div class="bar"><i style="width:${Math.min(100,pctOnCall).toFixed(2)}%"></i></div>
     <div class="bar-note"><span>${fmtLongDur(totalMin)} on call</span><span id="elapsed">${daysElapsed}d apart</span></div>
   </div>`;
 
