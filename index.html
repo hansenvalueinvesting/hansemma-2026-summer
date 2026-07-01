@@ -432,7 +432,6 @@ function buildPace(timeByDay, start, end, today){
     area += `L ${px} ${py} `;
   }
   area += `L ${X(todayIndex).toFixed(1)} ${base.toFixed(1)} Z`;
-  const steady = `M ${X(0).toFixed(1)} ${base.toFixed(1)} L ${X(todayIndex).toFixed(1)} ${Y(total).toFixed(1)}`;
   const yticks=[0, yMax/2, yMax].map(v=>{
     const yy=Y(v).toFixed(1);
     return `<line x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}" stroke="rgba(255,255,255,.06)"/>`+
@@ -448,7 +447,7 @@ function buildPace(timeByDay, start, end, today){
   return `
   <div class="panel" style="margin-top:16px">
     <h2>Total Call Time</h2>
-    <p class="lead">Every hour you've logged, stacking up. The dashed line is your steady pace — above it you ran hot, below it, quiet.</p>
+    <p class="lead">Every hour you've logged, stacking up over the summer.</p>
     <div class="chart">
       <svg viewBox="0 0 ${W} ${H}" id="pace" data-pace='${JSON.stringify(data)}'>
         <defs><linearGradient id="paceFill" x1="0" x2="0" y1="0" y2="1">
@@ -456,7 +455,6 @@ function buildPace(timeByDay, start, end, today){
         </linearGradient></defs>
         ${yticks}${xlabels}
         <path d="${area}" fill="url(#paceFill)"/>
-        <path d="${steady}" fill="none" stroke="rgba(255,210,170,.5)" stroke-width="1.5" stroke-dasharray="5 5"/>
         <path d="${line}" fill="none" stroke="var(--coral)" stroke-width="2.5" stroke-linejoin="round"/>
         <line id="paceVLine" x1="0" y1="${T}" x2="0" y2="${base}" stroke="rgba(255,255,255,.25)" style="display:none"/>
         <circle id="paceDot" r="4" fill="var(--gold)" style="display:none"/>
