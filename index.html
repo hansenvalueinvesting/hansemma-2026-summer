@@ -239,7 +239,8 @@ function render(data){
   // summer window
   const start = new Date(data.summerStart+"T00:00:00Z");
   const end   = new Date(data.summerEnd+"T00:00:00Z");
-  const today = new Date(); today.setUTCHours(0,0,0,0);
+  // "today" in the site's timezone (US Eastern), as UTC midnight to match start/end
+  const today = new Date(new Date().toLocaleDateString("en-CA",{timeZone:"America/New_York"})+"T00:00:00Z");
   const DAY = 86400000;
   const totalDays = Math.round((end-start)/DAY)+1;
   const clampToday = today < start ? start : (today > end ? end : today);
