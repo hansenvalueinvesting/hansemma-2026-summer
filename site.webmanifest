@@ -1,0 +1,17 @@
+{
+  "name": "our summer on call",
+  "short_name": "on call",
+  "description": "Our summer on call — a long-distance countdown and call log.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#160f29",
+  "theme_color": "#1c1733",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ]
+}

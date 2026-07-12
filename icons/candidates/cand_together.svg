@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#2a2147"/>
+      <stop offset="0.45" stop-color="#1c1733"/>
+      <stop offset="1"    stop-color="#160f29"/>
+    </linearGradient>
+    <rect width="1024" height="1024" fill="url(#sky)"/>
+    <radialGradient id="haloD" cx="512" cy="512" r="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="rgba(255,126,107,0.45)"/>
+      <stop offset="0.42" stop-color="rgba(255,159,178,0.16)"/>
+      <stop offset="1"    stop-color="rgba(255,159,178,0)"/>
+    </radialGradient>
+    <circle cx="512" cy="512" r="470" fill="url(#haloD)"/>
+    <linearGradient id="ringL" x1="0" y1="316" x2="0" y2="708" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd79a"/><stop offset="1" stop-color="#ff7e6b"/>
+    </linearGradient>
+    <linearGradient id="ringR" x1="0" y1="316" x2="0" y2="708" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb38a"/><stop offset="1" stop-color="#ff9fb2"/>
+    </linearGradient>
+    <radialGradient id="lens" cx="512.0" cy="512" r="205.8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd79a"/>
+      <stop offset="0.7" stop-color="#ff7e6b"/>
+      <stop offset="1" stop-color="#ff9fb2"/>
+    </radialGradient><circle cx="432" cy="512" r="196" fill="none" stroke="url(#ringL)" stroke-width="20"/><circle cx="592" cy="512" r="196" fill="none" stroke="url(#ringR)" stroke-width="20"/><path d="M 512.0 333.1 A 196 196 0 0 1 512.0 690.9 A 196 196 0 0 1 512.0 333.1 Z" fill="url(#lens)"/></svg>
