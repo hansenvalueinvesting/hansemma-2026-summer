@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+    <linearGradient id="skyB" x1="0" y1="0" x2="0" y2="648" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#241a3b"/>
+      <stop offset="0.34" stop-color="#3d2f54"/>
+      <stop offset="0.64" stop-color="#8a5a74"/>
+      <stop offset="0.85" stop-color="#ff9fb2"/>
+      <stop offset="1"    stop-color="#ffb38a"/>
+    </linearGradient>
+    <rect width="1024" height="648" fill="url(#skyB)"/>
+    <radialGradient id="haloB" cx="512" cy="648" r="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="rgba(255,126,107,0.55)"/>
+      <stop offset="0.42" stop-color="rgba(255,159,178,0.22)"/>
+      <stop offset="1"    stop-color="rgba(255,159,178,0)"/>
+    </radialGradient>
+    <circle cx="512" cy="648" r="430" fill="url(#haloB)"/>
+    <radialGradient id="sunB" cx="466.4" cy="587.2" r="269.8" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#ffd79a"/>
+      <stop offset="0.55" stop-color="#ff7e6b"/>
+      <stop offset="1"    stop-color="#ff9fb2"/>
+    </radialGradient>
+    <circle cx="512" cy="648" r="190" fill="url(#sunB)"/>
+    <linearGradient id="seaB" x1="0" y1="648" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a1e42"/>
+      <stop offset="1" stop-color="#160f29"/>
+    </linearGradient>
+    <rect y="648" width="1024" height="376" fill="url(#seaB)"/>
+    <radialGradient id="reflB" cx="512" cy="648" r="300" gradientUnits="userSpaceOnUse"
+        gradientTransform="matrix(0.42 0 0 1 297 0)">
+      <stop offset="0"    stop-color="rgba(255,170,130,0.55)"/>
+      <stop offset="0.5"  stop-color="rgba(255,150,120,0.20)"/>
+      <stop offset="1"    stop-color="rgba(255,150,120,0)"/>
+    </radialGradient>
+    <rect x="0" y="648" width="1024" height="300" fill="url(#reflB)"/></svg>

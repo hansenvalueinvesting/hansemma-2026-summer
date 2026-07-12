@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#2a2147"/>
+      <stop offset="0.45" stop-color="#1c1733"/>
+      <stop offset="1"    stop-color="#160f29"/>
+    </linearGradient>
+    <rect width="1024" height="1024" fill="url(#sky)"/>
+    <radialGradient id="haloC" cx="512" cy="480" r="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="rgba(255,126,107,0.5)"/>
+      <stop offset="0.42" stop-color="rgba(255,159,178,0.18)"/>
+      <stop offset="1"    stop-color="rgba(255,159,178,0)"/>
+    </radialGradient>
+    <circle cx="512" cy="480" r="460" fill="url(#haloC)"/>
+    <radialGradient id="heartF" cx="452" cy="330" r="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#ffd79a"/>
+      <stop offset="0.32" stop-color="#ffb38a"/>
+      <stop offset="0.60" stop-color="#ff7e6b"/>
+      <stop offset="0.86" stop-color="#ff6f7f"/>
+      <stop offset="1"    stop-color="#ff9fb2"/>
+    </radialGradient><path transform="translate(232.0,255.0) scale(17.500)" d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2c6.1-8.8,16-11.8,16-21.2C32,3.8,28.2,0,23.6,0z" fill="url(#heartF)"/></svg>
