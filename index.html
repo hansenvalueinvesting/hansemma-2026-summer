@@ -418,12 +418,23 @@ function startCountdown(summerStart, summerEnd, endLabel){
   document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) tick(); });
 }
 
-function colorFor(min){
+// Quartile-scaled shading: no call stays unshaded; call days are binned into
+// four warmth steps by where their duration falls in the observed range between
+// the shortest and longest call days (quartiles of that range).
+const HEAT_SHADES = [
+  "rgba(255,179,138,.30)",
+  "rgba(255,159,138,.55)",
+  "rgba(255,126,107,.80)",
+  "rgba(255,159,178,1)"
+];
+function colorFor(min, lo, hi){
   if(min<=0) return "rgba(255,255,255,.05)";
-  if(min<30)  return "rgba(255,179,138,.30)";
-  if(min<90)  return "rgba(255,159,138,.55)";
-  if(min<180) return "rgba(255,126,107,.80)";
-  return "rgba(255,159,178,1)";
+  // With one call day (or every call day equal) the range collapses — that day
+  // is both the shortest and longest, so give it the brightest step.
+  if(hi<=lo) return HEAT_SHADES[3];
+  const q = (min - lo) / (hi - lo);        // 0 at shortest day, 1 at longest
+  const idx = Math.min(3, Math.floor(q*4)); // four quartile buckets
+  return HEAT_SHADES[idx];
 }
 
 function buildPace(timeByDay, start, end, today){
@@ -550,9 +561,14 @@ function buildHeat(timeByDay, start, end, today){
     cells.push({iso,inRange,future,min,
       day:dt.getUTCDate(),mon:dt.getUTCMonth()});
   }
+  // Range of actual call days (past, in-range, min>0) drives the quartile scale.
+  const vals = cells.filter(c=>c.inRange && !c.future && c.min>0).map(c=>c.min);
+  const lo = vals.length ? Math.min(...vals) : 0;
+  const hi = vals.length ? Math.max(...vals) : 0;
+
   const cellHTML = cells.map(c=>{
     if(!c.inRange) return `<span class="cell" data-out="1" style="visibility:hidden"></span>`;
-    const bg = c.future ? "rgba(255,255,255,.03)" : colorFor(c.min);
+    const bg = c.future ? "rgba(255,255,255,.03)" : colorFor(c.min, lo, hi);
     const label = c.future ? "yet to come"
       : (c.min? `${fmtLongDur(c.min)} on call` : "no calls");
     return `<span class="cell" style="background:${bg}" data-iso="${c.iso}" data-label="${label}"></span>`;
